@@ -32,9 +32,10 @@ class HomeFragment : Fragment() {
         super.onViewStateRestored(savedInstanceState)
 
         if (viewModel.getUser() != null) {
-            viewModel.getUser()?.let { it1 -> showUserData(it1) }
+            showUserData(viewModel.getUser()!!)
         }
     }
+
 
 
     override fun onCreateView(
@@ -46,16 +47,23 @@ class HomeFragment : Fragment() {
         binding.bindingViewModel = viewModel
         binding.lifecycleOwner = this
 
-
         binding.button.setOnClickListener {
-            viewModel.getUser()?.let { it1 -> showUserData(it1) }
+
+            if (!viewModel.userName.value.isNullOrEmpty()) {
+                showUserData(viewModel.getUser()!!)
+            }
+
         }
 
         binding.cardView.setOnClickListener { view ->
-            viewModel.getuserRepositories()?.observe(requireActivity(), Observer {
-                val action = HomeFragmentDirections.actionHomeFragmentToUserRepositoriesFragment(it!!)
-                this.findNavController().navigate(action)
-            })
+
+            if (viewModel.getUser() != null) {
+                viewModel.getUserRepositories()?.observe(requireActivity(), Observer {
+                    val action =
+                        HomeFragmentDirections.actionHomeFragmentToUserRepositoriesFragment(it!!)
+                    this.findNavController().navigate(action)
+                })
+            }
         }
         return binding.root
     }

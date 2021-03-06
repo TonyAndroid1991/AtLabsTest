@@ -18,19 +18,25 @@ class HomeFragmentViewModel : ViewModel() {
 
     fun getUser(): LiveData<UserInDetail?>? {
         if (userName.value != null) {
-            return liveData {
-                userName.value?.let<String, Unit> { AppRepository().getUser(it).body().let { emit(it) } }
+            val user = liveData {
+                userName.value?.let { AppRepository().getUser(it).body().let { emit(it) } }
             }
+            return user
         }
         return null
     }
 
-    fun getuserRepositories(): LiveData<UserRepositories?>? {
+
+    fun getUserRepositories(): LiveData<UserRepositories?>? {
         if (userName.value != null) {
-            return liveData {
-                userName.value?.let<String, Unit> { AppRepository().getUserRepositories(it).body().let { emit(it) } }
+            val userRepositories = liveData {
+                userName.value?.let {
+                    AppRepository().getUserRepositories(it).body().let { emit(it) }
+                }
             }
+            return userRepositories
         }
         return null
     }
+
 }
