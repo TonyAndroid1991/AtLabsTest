@@ -10,16 +10,14 @@
         android:orientation="vertical"
         tools:context=".fragments.EditImageFragment">
 
-        <TextView
-            android:id="@+id/edit_user_image_text"
+
+        <Button
+            android:id="@+id/edit_image_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10sp"
             android:layout_marginTop="10sp"
-            android:background="#673AB7"
-            android:text="Edit Image"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
+            android:layout_marginStart="10sp"
+            android:layout_height="wrap_content"
+            android:text="Edit image"/>
 
         <ImageView
             android:id="@+id/big_user_image"
