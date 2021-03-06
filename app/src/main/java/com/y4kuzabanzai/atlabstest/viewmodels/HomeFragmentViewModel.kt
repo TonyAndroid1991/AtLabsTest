@@ -24,7 +24,7 @@ class HomeFragmentViewModel : ViewModel() {
         }
         return null
     }
-    
+
     fun getUserRepositories(): LiveData<UserRepositories?>? {
         if (userName.value != null) {
             return liveData {

@@ -21,6 +21,7 @@ class HomeFragment : Fragment() {
 
     lateinit var binding: FragmentHomeBinding
     lateinit var viewModel: HomeFragmentViewModel
+    lateinit var currentUser: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,14 +31,7 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        if (viewModel.getUser() != null)
-            showUserData(viewModel.getUser()!!)
-    }
-
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        super.onViewStateRestored(savedInstanceState)
-
-        if (viewModel.getUser() != null)
+        if (viewModel.getUser() != null && !binding.editUserName.text.toString().isNullOrBlank())
             showUserData(viewModel.getUser()!!)
     }
 
@@ -56,13 +50,14 @@ class HomeFragment : Fragment() {
         }
 
         binding.cardView.setOnClickListener { view ->
-            if (viewModel.userName.value != null) {
-                viewModel.getUserRepositories()?.observe(requireActivity(), Observer {
+            viewModel.getUserRepositories()?.observe(requireActivity(), Observer {
+                if (it != null) {
                     val action =
                         HomeFragmentDirections.actionHomeFragmentToUserRepositoriesFragment(it!!)
                     this.findNavController().navigate(action)
-                })
-            }
+                }
+
+            })
         }
 
         binding.userImage.setOnClickListener {
@@ -78,20 +73,28 @@ class HomeFragment : Fragment() {
 
     private fun showUserData(user: LiveData<User?>) {
         user.observe(requireActivity(), Observer { user ->
-            binding.apply {
-                userFullName.text = user?.name
-                userName?.text = user?.login
-                if (user?.bio == null) {
-                    userBiography.text = getString(R.string.no_biography)
-                } else {
-                    userBiography.text = user?.bio.toString()
-                }
+            if (user != null) {
+                binding.apply {
 
-                Glide.with(requireActivity())
-                    .load(user?.avatarUrl)
-                    .override(320, 480)
-                    .into(userImage)
+                    if (cardView.visibility == View.GONE) {
+                        cardView.visibility = View.VISIBLE
+                    }
+
+                    userFullName.text = user?.name
+                    userName?.text = user?.login
+                    if (user?.bio == null) {
+                        userBiography.text = getString(R.string.no_biography)
+                    } else {
+                        userBiography.text = user?.bio.toString()
+                    }
+
+                    Glide.with(requireActivity())
+                        .load(user?.avatarUrl)
+                        .override(320, 480)
+                        .into(userImage)
+                }
             }
         })
+
     }
 }

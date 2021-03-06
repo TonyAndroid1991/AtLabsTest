@@ -88,7 +88,7 @@
                         android:layout_marginTop="10sp"
                         android:layout_toRightOf="@+id/user_image"
                         android:text="Name: "
-                        android:textSize="20sp" />
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/user_full_name"
@@ -98,31 +98,51 @@
                         android:layout_marginTop="10sp"
                         android:layout_toRightOf="@+id/static_full_name_string"
                         android:text="My name is..."
-                        android:textSize="20sp" />
+                        android:textSize="15sp" />
 
+                    <TextView
+                        android:id="@+id/static_user_name_string"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_below="@+id/static_full_name_string"
+                        android:layout_toRightOf="@+id/user_image"
+                        android:text="User Name: "
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_below="@+id/user_full_name"
+                        android:layout_toRightOf="@+id/static_user_name_string"
+                        android:text="My name is..."
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/biography"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/static_full_name_string"
+                        android:layout_below="@+id/static_user_name_string"
                         android:layout_marginStart="10sp"
                         android:layout_marginTop="10sp"
                         android:layout_toRightOf="@+id/user_image"
                         android:text="Biography: "
-                        android:textSize="20sp" />
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/user_biography"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/user_full_name"
+                        android:layout_below="@+id/user_name"
                         android:layout_marginStart="5sp"
                         android:layout_marginTop="10sp"
                         android:layout_toRightOf="@+id/biography"
                         android:text="My biography is..."
-                        android:textSize="20sp" />
-
+                        android:textSize="15sp" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
