@@ -14,7 +14,6 @@ import com.bumptech.glide.Glide
 import com.y4kuzabanzai.atlabstest.R
 import com.y4kuzabanzai.atlabstest.databinding.FragmentHomeBinding
 import com.y4kuzabanzai.atlabstest.models.userindetail.UserInDetail
-import com.y4kuzabanzai.atlabstest.models.userrepos.UserRepositoriesItem
 import com.y4kuzabanzai.atlabstest.viewmodels.HomeFragmentViewModel
 
 
@@ -37,6 +36,8 @@ class HomeFragment : Fragment() {
         }
     }
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,7 +52,6 @@ class HomeFragment : Fragment() {
                 showUserData(viewModel.usernameLive)
             }
         }
-
 
         binding.cardView.setOnClickListener { view ->
           viewModel.userRepositories.observe(requireActivity(), Observer {
