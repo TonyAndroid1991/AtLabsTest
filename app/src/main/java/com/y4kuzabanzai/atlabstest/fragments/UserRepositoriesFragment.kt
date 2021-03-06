@@ -52,7 +52,7 @@ class UserRepositoriesFragment : Fragment() {
 
     fun setVisuals() {
         binding.apply {
-            userName.text = userRepositories[0].owner.login
+            userFullName.text = userRepositories[0].owner.login
 
             Glide.with(requireActivity())
                 .load(userRepositories[0].owner.avatarUrl)

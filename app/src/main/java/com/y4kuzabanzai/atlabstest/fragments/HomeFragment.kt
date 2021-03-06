@@ -72,19 +72,16 @@ class HomeFragment : Fragment() {
                     this.findNavController().navigate(action)
                 }
             })
-
-
         }
-
-
         return binding.root
     }
 
     private fun showUserData(user: LiveData<UserInDetail?>) {
         user.observe(requireActivity(), Observer { userInDetail ->
             binding.apply {
-                userName.text = userInDetail?.login
-                userBiography.text = userInDetail?.bio.toString() //as CharSequence?
+                userFullName.text = userInDetail?.name
+                userName?.text = userInDetail?.login
+                userBiography.text = userInDetail?.bio.toString()
 
                 Glide.with(requireActivity())
                     .load(userInDetail?.avatarUrl)
