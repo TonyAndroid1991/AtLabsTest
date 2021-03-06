@@ -5,20 +5,25 @@
     <LinearLayout
         android:layout_marginTop="10sp"
         android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6E5268">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10sp"
-            android:text="Repository Name:"/>
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:text="Repo Name:"/>
 
         <TextView
             android:id="@+id/name_of_repository"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10sp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
             android:text="ExampleRepoName@Tony"/>
 
     </LinearLayout>
