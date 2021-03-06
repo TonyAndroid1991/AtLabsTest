@@ -10,7 +10,6 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.y4kuzabanzai.atlabstest.R
-import com.y4kuzabanzai.atlabstest.fragments.UserRepositoriesFragmentArgs
 import com.y4kuzabanzai.atlabstest.databinding.FragmentUserRepositoriesBinding
 import com.y4kuzabanzai.atlabstest.models.userrepos.UserRepositories
 import com.y4kuzabanzai.atlabstest.recyclerview.UserReposRecyclerAdapter
