@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
@@ -31,12 +32,9 @@ class HomeFragment : Fragment() {
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
 
-        if (viewModel.getUser() != null) {
+        if (viewModel.getUser() != null)
             showUserData(viewModel.getUser()!!)
-        }
     }
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,16 +46,12 @@ class HomeFragment : Fragment() {
         binding.lifecycleOwner = this
 
         binding.button.setOnClickListener {
-
-            if (!viewModel.userName.value.isNullOrEmpty()) {
+            if (!viewModel.userName.value.isNullOrEmpty())
                 showUserData(viewModel.getUser()!!)
-            }
-
         }
 
         binding.cardView.setOnClickListener { view ->
-
-            if (viewModel.getUser() != null) {
+            if (viewModel.getUser()?.value != null) {
                 viewModel.getUserRepositories()?.observe(requireActivity(), Observer {
                     val action =
                         HomeFragmentDirections.actionHomeFragmentToUserRepositoriesFragment(it!!)
