@@ -29,6 +29,12 @@ class HomeFragment : Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (viewModel.getUser() != null)
+            showUserData(viewModel.getUser()!!)
+    }
+
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
 
@@ -51,7 +57,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.cardView.setOnClickListener { view ->
-            if (viewModel.getUser()?.value != null) {
+            if (viewModel.userName.value != null) {
                 viewModel.getUserRepositories()?.observe(requireActivity(), Observer {
                     val action =
                         HomeFragmentDirections.actionHomeFragmentToUserRepositoriesFragment(it!!)
@@ -59,6 +65,12 @@ class HomeFragment : Fragment() {
                 })
             }
         }
+
+        binding.userImage.setOnClickListener {
+            this.findNavController().navigate(R.id.action_homeFragment_to_editImageFragment)
+        }
+
+
         return binding.root
     }
 

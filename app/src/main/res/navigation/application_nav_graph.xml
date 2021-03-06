@@ -13,14 +13,22 @@
         <action
             android:id="@+id/action_homeFragment_to_userRepositoriesFragment"
             app:destination="@id/userRepositoriesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_editImageFragment"
+            app:destination="@id/editImageFragment" />
     </fragment>
     <fragment
         android:id="@+id/userRepositoriesFragment"
-        android:name="com.y4kuzabanzai.atlabstest.UserRepositoriesFragment"
+        android:name="com.y4kuzabanzai.atlabstest.fragments.UserRepositoriesFragment"
         android:label="fragment_user_repositories"
         tools:layout="@layout/fragment_user_repositories" >
         <argument
             android:name="please"
             app:argType="com.y4kuzabanzai.atlabstest.models.userrepos.UserRepositories" />
     </fragment>
+    <fragment
+        android:id="@+id/editImageFragment"
+        android:name="com.y4kuzabanzai.atlabstest.fragments.EditImageFragment"
+        android:label="fragment_edit_image"
+        tools:layout="@layout/fragment_edit_image" />
 </navigation>

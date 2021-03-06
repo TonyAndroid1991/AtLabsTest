@@ -1,4 +1,4 @@
-package com.y4kuzabanzai.atlabstest
+package com.y4kuzabanzai.atlabstest.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.y4kuzabanzai.atlabstest.R
+import com.y4kuzabanzai.atlabstest.fragments.UserRepositoriesFragmentArgs
 import com.y4kuzabanzai.atlabstest.databinding.FragmentUserRepositoriesBinding
 import com.y4kuzabanzai.atlabstest.models.userrepos.UserRepositories
 import com.y4kuzabanzai.atlabstest.recyclerview.UserReposRecyclerAdapter
@@ -29,7 +31,8 @@ class UserRepositoriesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_user_repositories, container, false)
+        binding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_user_repositories, container, false)
 
         userRepositories = args.please
         setRecyclerView()
