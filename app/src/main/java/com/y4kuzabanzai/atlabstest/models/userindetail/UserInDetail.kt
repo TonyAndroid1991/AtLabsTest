@@ -2,6 +2,7 @@ package com.y4kuzabanzai.atlabstest.models.userindetail
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class UserInDetail(
     @SerializedName("avatar_url")
@@ -68,4 +69,4 @@ data class UserInDetail(
     val updatedAt: String,
     @SerializedName("url")
     val url: String
-)
+) : Serializable

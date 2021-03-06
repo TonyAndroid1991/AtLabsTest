@@ -30,5 +30,9 @@
         android:id="@+id/editImageFragment"
         android:name="com.y4kuzabanzai.atlabstest.fragments.EditImageFragment"
         android:label="fragment_edit_image"
-        tools:layout="@layout/fragment_edit_image" />
+        tools:layout="@layout/fragment_edit_image" >
+        <argument
+            android:name="user_in_detail"
+            app:argType="com.y4kuzabanzai.atlabstest.models.userindetail.UserInDetail" />
+    </fragment>
 </navigation>
