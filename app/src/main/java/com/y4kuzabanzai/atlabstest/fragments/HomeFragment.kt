@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.y4kuzabanzai.atlabstest.R
 import com.y4kuzabanzai.atlabstest.databinding.FragmentHomeBinding
-import com.y4kuzabanzai.atlabstest.models.userindetail.UserInDetail
+import com.y4kuzabanzai.atlabstest.models.user.User
 import com.y4kuzabanzai.atlabstest.viewmodels.HomeFragmentViewModel
 
 
@@ -76,15 +76,19 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    private fun showUserData(user: LiveData<UserInDetail?>) {
-        user.observe(requireActivity(), Observer { userInDetail ->
+    private fun showUserData(user: LiveData<User?>) {
+        user.observe(requireActivity(), Observer { user ->
             binding.apply {
-                userFullName.text = userInDetail?.name
-                userName?.text = userInDetail?.login
-                userBiography.text = userInDetail?.bio.toString()
+                userFullName.text = user?.name
+                userName?.text = user?.login
+                if (user?.bio == null) {
+                    userBiography.text = getString(R.string.no_biography)
+                } else {
+                    userBiography.text = user?.bio.toString()
+                }
 
                 Glide.with(requireActivity())
-                    .load(userInDetail?.avatarUrl)
+                    .load(user?.avatarUrl)
                     .override(320, 480)
                     .into(userImage)
             }

@@ -1,10 +1,10 @@
-package com.y4kuzabanzai.atlabstest.models.userindetail
+package com.y4kuzabanzai.atlabstest.models.user
 
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-data class UserInDetail(
+data class User(
     @SerializedName("avatar_url")
     val avatarUrl: String,
     @SerializedName("bio")

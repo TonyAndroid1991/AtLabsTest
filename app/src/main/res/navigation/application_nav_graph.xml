@@ -23,7 +23,7 @@
         android:label="fragment_user_repositories"
         tools:layout="@layout/fragment_user_repositories" >
         <argument
-            android:name="please"
+            android:name="user_repositories"
             app:argType="com.y4kuzabanzai.atlabstest.models.userrepos.UserRepositories" />
     </fragment>
     <fragment
@@ -32,7 +32,7 @@
         android:label="fragment_edit_image"
         tools:layout="@layout/fragment_edit_image" >
         <argument
-            android:name="user_in_detail"
-            app:argType="com.y4kuzabanzai.atlabstest.models.userindetail.UserInDetail" />
+            android:name="user"
+            app:argType="com.y4kuzabanzai.atlabstest.models.user.User" />
     </fragment>
 </navigation>

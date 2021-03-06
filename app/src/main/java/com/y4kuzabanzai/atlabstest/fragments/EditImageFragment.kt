@@ -10,12 +10,12 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.y4kuzabanzai.atlabstest.R
 import com.y4kuzabanzai.atlabstest.databinding.FragmentEditImageBinding
-import com.y4kuzabanzai.atlabstest.models.userindetail.UserInDetail
+import com.y4kuzabanzai.atlabstest.models.user.User
 
 class EditImageFragment : Fragment() {
 
     private val args by navArgs<EditImageFragmentArgs>()
-    lateinit var userInDetail: UserInDetail
+    lateinit var user: User
     lateinit var editImageBinding: FragmentEditImageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +28,7 @@ class EditImageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        userInDetail = args.userInDetail
+        user = args.user
         editImageBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit_image, container, false)
 
         loadImage()
@@ -39,7 +39,7 @@ class EditImageFragment : Fragment() {
     fun loadImage() {
 
         Glide.with(requireActivity())
-            .load(userInDetail?.avatarUrl)
+            .load(user?.avatarUrl)
             .override(720, 1280)
             .into(editImageBinding.bigUserImage)
     }

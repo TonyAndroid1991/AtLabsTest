@@ -34,7 +34,7 @@ class UserRepositoriesFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_user_repositories, container, false)
 
-        userRepositories = args.please
+        userRepositories = args.userRepositories
         setRecyclerView()
         setVisuals()
 
